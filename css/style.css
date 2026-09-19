@@ -193,7 +193,7 @@ body {
   bottom: 6%;
   text-align: center;
   font-family: var(--font-script-latin);
-  font-size: clamp(2.6rem, 12vw, 3.6rem);
+  font-size: clamp(calc(2.6rem + 10px), 12vw, calc(3.6rem + 10px));
   color: var(--maroon-900);
   text-shadow: 0 2px 14px rgba(250,244,230,.55);
   z-index: 2;
@@ -453,6 +453,22 @@ body {
   color: var(--maroon-700);
   margin: 6px 0 30px;
 }
+
+/* ---------- letters assembling into a word ---------- */
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--rot, 0deg)) scale(.55);
+  transition: opacity .7s var(--ease-soft), transform .7s var(--ease-soft);
+  will-change: transform, opacity;
+}
+.letter.in-view {
+  opacity: 1;
+  transform: translate(0, 0) rotate(0deg) scale(1);
+}
+.hero-title .letter { margin-right: .22em; }
+.hero-title .letter:last-child { margin-right: 0; }
 
 /* ---------- reveal / scroll animations ---------- */
 

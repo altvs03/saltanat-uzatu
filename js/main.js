@@ -9,6 +9,37 @@
     if (cfg[key]) el.textContent = cfg[key];
   });
 
+  /* ---------- hero words assembling from scattered letters ---------- */
+  function assembleLetters(el, delayMs, spread) {
+    if (!el) return;
+    var text = el.textContent;
+    el.textContent = "";
+    text.split("").forEach(function (ch, i) {
+      var span = document.createElement("span");
+      span.className = "letter";
+      span.textContent = ch === " " ? " " : ch;
+      var dx = (Math.random() * 2 - 1) * spread;
+      var dy = -Math.abs(Math.random()) * spread - 12;
+      var rot = (Math.random() * 2 - 1) * 30;
+      span.style.setProperty("--dx", dx.toFixed(1) + "px");
+      span.style.setProperty("--dy", dy.toFixed(1) + "px");
+      span.style.setProperty("--rot", rot.toFixed(1) + "deg");
+      span.style.transitionDelay = (delayMs + i * 40) + "ms";
+      el.appendChild(span);
+    });
+    // double rAF so the scattered starting position paints before we
+    // switch to the "assembled" state — otherwise the transition is skipped
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        el.querySelectorAll(".letter").forEach(function (span) {
+          span.classList.add("in-view");
+        });
+      });
+    });
+  }
+  assembleLetters(document.getElementById("hero-name-text"), 200, 46);
+  assembleLetters(document.getElementById("hero-title-text"), 900, 60);
+
   /* ---------- maps button ---------- */
   var mapBtn = document.getElementById("map-btn");
   if (mapBtn) {
@@ -253,7 +284,7 @@
   /* ---------- gentle auto-scroll (stops on any user interaction) ---------- */
   (function autoScroll() {
     var SPEED = 42; // px / second — gentle, video-like pace
-    var START_DELAY = 1800; // let the hero reveal play first
+    var START_DELAY = 2400; // let the hero letters finish assembling first
     var rafId = null;
     var lastTime = null;
     var stopped = false;
