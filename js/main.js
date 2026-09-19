@@ -315,7 +315,7 @@
         stop();
         return;
       }
-      window.scrollBy(0, SPEED * dt);
+      window.scrollBy({ top: SPEED * dt, left: 0, behavior: "instant" });
       rafId = requestAnimationFrame(step);
     }
 

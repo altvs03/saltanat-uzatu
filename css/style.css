@@ -36,7 +36,9 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* scroll-behavior: smooth is deliberately NOT set — it fights the
+   per-frame auto-scroll below (many tiny smooth-scrolls queue up and
+   cancel each other out, so the page barely moves) */
 
 body {
   margin: 0;
