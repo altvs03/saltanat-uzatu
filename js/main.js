@@ -148,6 +148,25 @@
       musicBtn.title = "Аудио файл табылмады";
     };
 
+    function startPlayback(onFail) {
+      if (musicBtn.classList.contains("is-disabled")) return;
+      var settled = false;
+      var safety = setTimeout(function () {
+        if (!settled) { settled = true; (onFail || disableMusic)(); }
+      }, 2500);
+      audio.play().then(function () {
+        if (settled) return;
+        settled = true;
+        clearTimeout(safety);
+        musicBtn.classList.add("is-playing");
+      }).catch(function () {
+        if (settled) return;
+        settled = true;
+        clearTimeout(safety);
+        (onFail || disableMusic)();
+      });
+    }
+
     if (cfg.musicSrc) {
       var src = document.createElement("source");
       src.src = cfg.musicSrc;
@@ -162,25 +181,25 @@
     musicBtn.addEventListener("click", function () {
       if (musicBtn.classList.contains("is-disabled")) return;
       if (audio.paused) {
-        var settled = false;
-        var safety = setTimeout(function () {
-          if (!settled) { settled = true; disableMusic(); }
-        }, 2500);
-        audio.play().then(function () {
-          if (settled) return;
-          settled = true;
-          clearTimeout(safety);
-          musicBtn.classList.add("is-playing");
-        }).catch(function () {
-          if (settled) return;
-          settled = true;
-          clearTimeout(safety);
-          disableMusic();
-        });
+        startPlayback();
       } else {
         audio.pause();
         musicBtn.classList.remove("is-playing");
       }
+    });
+
+    // Browsers block audio autoplay without a user gesture, so try right
+    // away and, if blocked, start on the guest's very first tap/scroll/key —
+    // the button still works normally to pause/resume at any time.
+    startPlayback(function () {
+      var events = ["pointerdown", "touchstart", "keydown", "wheel"];
+      function onFirstInteract() {
+        events.forEach(function (ev) { window.removeEventListener(ev, onFirstInteract); });
+        startPlayback();
+      }
+      events.forEach(function (ev) {
+        window.addEventListener(ev, onFirstInteract, { passive: true, once: true });
+      });
     });
   }
 
@@ -230,4 +249,52 @@
       }
     });
   }
+
+  /* ---------- gentle auto-scroll (stops on any user interaction) ---------- */
+  (function autoScroll() {
+    var SPEED = 42; // px / second — gentle, video-like pace
+    var START_DELAY = 1800; // let the hero reveal play first
+    var rafId = null;
+    var lastTime = null;
+    var stopped = false;
+
+    function stop() {
+      if (stopped) return;
+      stopped = true;
+      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener("wheel", stop);
+      window.removeEventListener("touchstart", stop);
+      window.removeEventListener("pointerdown", stop);
+      window.removeEventListener("keydown", onKey);
+    }
+
+    function onKey(e) {
+      var keys = ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "];
+      if (keys.indexOf(e.key) !== -1) stop();
+    }
+
+    function step(timestamp) {
+      if (stopped) return;
+      if (lastTime === null) lastTime = timestamp;
+      var dt = (timestamp - lastTime) / 1000;
+      lastTime = timestamp;
+
+      var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (window.scrollY >= maxScroll - 2) {
+        stop();
+        return;
+      }
+      window.scrollBy(0, SPEED * dt);
+      rafId = requestAnimationFrame(step);
+    }
+
+    window.addEventListener("wheel", stop, { passive: true });
+    window.addEventListener("touchstart", stop, { passive: true });
+    window.addEventListener("pointerdown", stop, { passive: true });
+    window.addEventListener("keydown", onKey);
+
+    setTimeout(function () {
+      if (!stopped) rafId = requestAnimationFrame(step);
+    }, START_DELAY);
+  })();
 })();
