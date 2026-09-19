@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Салтанат — Қыз ұзату</title>
+<meta name="description" content="Салтанат қыз ұзату тойына арналған электронды шақыру">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<button id="music-toggle" class="music-btn" type="button" aria-label="Музыканы қосу/өшіру" title="Музыка">
+  <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16"><path d="M6 4l14 8-14 8V4z" fill="currentColor"/></svg>
+  <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" hidden><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" fill="currentColor"/></svg>
+</button>
+
+<audio id="bg-music" loop preload="none"></audio>
+
+<div class="site">
+
+  <!-- 1. HERO -->
+  <section class="section hero" id="hero">
+    <div class="photo-frame photo-frame--hero">
+      <div class="photo-parallax">
+        <div class="photo-bg kenburns" data-photo="hero"></div>
+      </div>
+      <div class="photo-gradient-bottom"></div>
+      <div class="hero-name reveal-load" data-delay="1">
+        <span data-config="brideName">Салтанат</span>
+      </div>
+    </div>
+
+    <div class="section-body hero-body">
+      <div class="side-ornaments">
+        <svg class="side-ornament side-ornament--left reveal-load" data-delay="2" viewBox="0 0 40 220" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 10 C 34 40, 6 60, 20 90 C 34 120, 6 140, 20 170 C 30 190, 14 205, 20 215" fill="none" stroke="currentColor" stroke-width="1.1"/>
+          <circle cx="20" cy="10" r="3" fill="currentColor"/>
+          <circle cx="20" cy="110" r="2.4" fill="currentColor"/>
+          <circle cx="20" cy="215" r="2" fill="currentColor"/>
+        </svg>
+
+        <h1 class="hero-title reveal-load" data-delay="3">ҚЫЗ ҰЗАТУ</h1>
+
+        <svg class="side-ornament side-ornament--right reveal-load" data-delay="2" viewBox="0 0 40 220" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 10 C 6 40, 34 60, 20 90 C 6 120, 34 140, 20 170 C 10 190, 26 205, 20 215" fill="none" stroke="currentColor" stroke-width="1.1"/>
+          <circle cx="20" cy="10" r="3" fill="currentColor"/>
+          <circle cx="20" cy="110" r="2.4" fill="currentColor"/>
+          <circle cx="20" cy="215" r="2" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <p class="hero-date reveal-load" data-delay="4" data-config="eventDateShort">14.02.2026</p>
+
+      <svg class="divider reveal-load" data-delay="4" viewBox="0 0 300 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 15 Q 75 0, 140 15" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M290 15 Q 225 0, 160 15" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="150" cy="15" r="3.5" fill="currentColor"/>
+        <circle cx="10" cy="15" r="1.6" fill="currentColor"/>
+        <circle cx="290" cy="15" r="1.6" fill="currentColor"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 2. ПРИГЛАШЕНИЕ -->
+  <section class="section invite" id="invite">
+    <div class="photo-frame photo-frame--tall">
+      <div class="photo-parallax">
+        <div class="photo-bg kenburns" data-photo="invitation"></div>
+      </div>
+      <div class="photo-gradient-bottom"></div>
+    </div>
+
+    <div class="section-body">
+      <p class="eyebrow reveal">СІЗДЕРДІ АЯУЛЫ ҚЫЗЫМЫЗ</p>
+      <p class="script-name reveal" data-config="brideNamePossessive">Салтанатымыздың</p>
+      <p class="invite-text reveal">
+        АҚ МЕКЕНІНЕН ҰШАР<br>
+        СӘТІНДЕ ҚУАНЫШЫМЫЗБЕН<br>
+        БӨЛІСУГЕ ШЫН НИЕТПЕН<br>
+        ШАҚЫРАМЫЗ!
+      </p>
+      <svg class="divider reveal" viewBox="0 0 300 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 15 Q 75 0, 140 15" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M290 15 Q 225 0, 160 15" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="150" cy="15" r="3.5" fill="currentColor"/>
+        <circle cx="10" cy="15" r="1.6" fill="currentColor"/>
+        <circle cx="290" cy="15" r="1.6" fill="currentColor"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 3. ҚҰРМЕТТІ ҚОНАҚТАР -->
+  <section class="section guests" id="guests">
+    <div class="photo-frame photo-frame--tall">
+      <div class="photo-parallax">
+        <div class="photo-bg kenburns" data-photo="guests"></div>
+      </div>
+      <div class="photo-gradient-bottom"></div>
+    </div>
+
+    <div class="section-body guests-body">
+      <svg class="corner-ornament corner-ornament--left reveal" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 115 C 5 60, 60 5, 115 5" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M5 90 C 30 60, 60 30, 90 5" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+        <circle cx="5" cy="115" r="2.6" fill="currentColor"/>
+      </svg>
+      <svg class="corner-ornament corner-ornament--right reveal" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M115 115 C 115 60, 60 5, 5 5" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M115 90 C 90 60, 60 30, 30 5" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+        <circle cx="115" cy="115" r="2.6" fill="currentColor"/>
+      </svg>
+
+      <p class="script-name reveal">Құрметті</p>
+      <p class="guests-text reveal">
+        АҒАЙЫН-ТУЫС, БАУЫРЛАР,<br>
+        ҚҰДА-ЖЕКЖАТ,<br>
+        НАҒАШЫ-ЖИЕН,<br>
+        БӨЛЕЛЕР,<br>
+        ӘПКЕ-ЖЕЗДЕ,<br>
+        ҚҰРДАСТАР, ДОСТАР,<br>
+        ӘРІПТЕСТЕР, КӨРШІЛЕР!
+      </p>
+    </div>
+  </section>
+
+  <!-- 4. ТОЙ ИЕЛЕРІ -->
+  <section class="section hosts" id="hosts">
+    <div class="photo-frame photo-frame--tall">
+      <div class="photo-parallax">
+        <div class="photo-bg kenburns" data-photo="hosts"></div>
+      </div>
+      <div class="photo-gradient-bottom"></div>
+    </div>
+
+    <div class="section-body">
+      <p class="eyebrow reveal">ТОЙ ИЕЛЕРІ:</p>
+      <p class="hosts-names reveal" data-config="hosts">Ербол — Әлия</p>
+      <p class="script-name reveal">Қуанышымызға ортақ<br>болыңыздар!</p>
+    </div>
+  </section>
+
+  <!-- переходное фото украшений -->
+  <section class="section jewelry" id="jewelry">
+    <div class="photo-frame photo-frame--wide">
+      <div class="photo-parallax">
+        <div class="photo-bg kenburns" data-photo="jewelry"></div>
+      </div>
+      <div class="photo-gradient-bottom"></div>
+    </div>
+  </section>
+
+  <!-- 5. ДАТА И МЕСТО -->
+  <section class="section datetime" id="datetime">
+    <div class="photo-frame photo-frame--short">
+      <div class="photo-parallax">
+        <div class="photo-bg kenburns" data-photo="datetime"></div>
+      </div>
+      <div class="photo-gradient-bottom"></div>
+    </div>
+
+    <div class="section-body">
+      <div class="card reveal">
+        <p class="eyebrow">ТОЙ КҮНІ</p>
+        <p class="card-date" data-config="eventDateLong">14 ақпан 2026 жыл</p>
+        <svg class="divider divider--small" viewBox="0 0 200 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 12 Q 50 0, 94 12" fill="none" stroke="currentColor" stroke-width="1"/>
+          <path d="M194 12 Q 150 0, 106 12" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="100" cy="12" r="3" fill="currentColor"/>
+        </svg>
+        <p class="card-time"><span data-config="eventTime">18:00</span></p>
+        <p class="card-venue">
+          <span class="venue-name" data-config="venueName">Мейрамхана атауы</span><br>
+          <span class="venue-address" data-config="venueAddress">Мекенжай</span>
+        </p>
+        <a href="#" id="map-btn" class="btn btn--outline" target="_blank" rel="noopener">📍 КАРТАДАН КӨРУ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. RSVP -->
+  <section class="section rsvp" id="rsvp">
+    <div class="section-body">
+      <p class="rsvp-title reveal">СІЗДЕРДІҢ КЕЛУІҢІЗ БІЗ ҮШІН ӨТЕ МАҢЫЗДЫ</p>
+
+      <svg class="divider reveal" viewBox="0 0 300 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 15 Q 75 0, 140 15" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M290 15 Q 225 0, 160 15" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="150" cy="15" r="3.5" fill="currentColor"/>
+        <circle cx="10" cy="15" r="1.6" fill="currentColor"/>
+        <circle cx="290" cy="15" r="1.6" fill="currentColor"/>
+      </svg>
+
+      <button type="button" id="rsvp-open" class="btn btn--filled reveal">ҚАТЫСУДЫ РАСТАУ</button>
+
+      <form id="rsvp-form" class="rsvp-form" hidden>
+        <label class="field">
+          <span>Аты-жөні</span>
+          <input type="text" name="name" required autocomplete="name">
+        </label>
+
+        <fieldset class="field field--radio">
+          <legend>Қатысуыңыз</legend>
+          <label><input type="radio" name="attending" value="yes" checked> Қатысамын</label>
+          <label><input type="radio" name="attending" value="no"> Қатыса алмаймын</label>
+        </fieldset>
+
+        <label class="field">
+          <span>Қонақ саны</span>
+          <input type="number" name="guests" min="1" max="20" value="1" inputmode="numeric">
+        </label>
+
+        <label class="field">
+          <span>Телефон нөмірі</span>
+          <input type="tel" name="phone" required autocomplete="tel" placeholder="+7 7__ ___ __ __">
+        </label>
+
+        <button type="submit" class="btn btn--filled">ЖІБЕРУ</button>
+      </form>
+
+      <div id="rsvp-thanks" class="rsvp-thanks" hidden>
+        <svg viewBox="0 0 60 60" width="42" height="42" class="thanks-check">
+          <circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M18 31 L26 39 L43 21" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p id="rsvp-thanks-text">Келетініңізге қуаныштымыз!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. ФИНАЛ -->
+  <section class="section final" id="final">
+    <div class="photo-frame photo-frame--tall">
+      <div class="photo-parallax">
+        <div class="photo-bg kenburns" data-photo="final"></div>
+      </div>
+      <div class="photo-gradient-bottom"></div>
+    </div>
+
+    <div class="section-body">
+      <p class="final-title reveal">
+        Салтанаттың<br>
+        <span>ҚЫЗ ҰЗАТУЫНА</span><br>
+        ҚОШ КЕЛДІҢІЗДЕР!
+      </p>
+      <svg class="divider reveal" viewBox="0 0 300 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 15 Q 75 0, 140 15" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M290 15 Q 225 0, 160 15" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="150" cy="15" r="3.5" fill="currentColor"/>
+        <circle cx="10" cy="15" r="1.6" fill="currentColor"/>
+        <circle cx="290" cy="15" r="1.6" fill="currentColor"/>
+      </svg>
+      <p class="final-sub reveal">Ақ тілектеріңізбен бөлісіңіздер 🤍</p>
+    </div>
+  </section>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
