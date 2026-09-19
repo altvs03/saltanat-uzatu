@@ -26,6 +26,7 @@
   --ink: #2c1412;
 
   --font-script: 'KZ Rosa', cursive;
+  --font-script-latin: 'Great Vibes', cursive;
   --font-display: 'Playfair Display', 'Times New Roman', serif;
   --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
 
@@ -180,7 +181,7 @@ body {
   left: 0; right: 0;
   bottom: 6%;
   text-align: center;
-  font-family: var(--font-script);
+  font-family: var(--font-script-latin);
   font-size: clamp(2.6rem, 12vw, 3.6rem);
   color: var(--maroon-900);
   text-shadow: 0 2px 14px rgba(250,244,230,.55);
@@ -194,7 +195,7 @@ body {
   font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: .22em;
-  font-size: clamp(1.6rem, 6.4vw, 2.1rem);
+  font-size: clamp(calc(1.6rem + 5px), 6.4vw, calc(2.1rem + 5px));
   color: var(--maroon-900);
   text-align: center;
 }
@@ -269,6 +270,67 @@ body {
   color: var(--maroon-800);
   margin: 6px 0 12px;
   letter-spacing: .04em;
+}
+
+/* ---------- calendar ---------- */
+
+.calendar-title {
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  color: var(--maroon-800);
+  margin: 0 0 2px;
+}
+.calendar {
+  max-width: 290px;
+  margin: 14px auto 10px;
+}
+.calendar-weekdays,
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.calendar-weekdays div {
+  font-family: var(--font-display);
+  font-size: .64rem;
+  letter-spacing: .03em;
+  color: var(--maroon-700);
+  text-align: center;
+  padding-bottom: 6px;
+}
+.calendar-cell {
+  position: relative;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: .92rem;
+  color: var(--ink);
+}
+.calendar-cell.is-event {
+  color: var(--maroon-800);
+  font-weight: 600;
+}
+.calendar-cell .heart-mark {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 30px;
+  height: 28px;
+  color: var(--maroon-700);
+  pointer-events: none;
+}
+.calendar-cell .day-num {
+  position: relative;
+  z-index: 1;
+}
+.calendar-datetime {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--maroon-800);
+  margin: 8px 0 2px;
 }
 .card-venue {
   font-family: var(--font-serif);

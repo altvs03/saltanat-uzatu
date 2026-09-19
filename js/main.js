@@ -20,6 +20,51 @@
     mapBtn.setAttribute("href", url);
   }
 
+  /* ---------- calendar ---------- */
+  (function buildCalendar() {
+    var container = document.getElementById("calendar");
+    var dtText = document.getElementById("calendar-datetime");
+    if (!container) return;
+
+    var parts = (cfg.eventDateShort || "").split(".");
+    if (parts.length !== 3) return;
+    var day = parseInt(parts[0], 10);
+    var month = parseInt(parts[1], 10) - 1;
+    var year = parseInt(parts[2], 10);
+
+    var weekdayLabels = ["Дс", "Сс", "Ср", "Бс", "Жм", "Сб", "Жб"];
+    var firstOfMonth = new Date(year, month, 1);
+    var startIndex = (firstOfMonth.getDay() + 6) % 7; // Monday-first
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    var heartSvg =
+      '<svg class="heart-mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">' +
+      '<path d="M12 21s-8-4.6-8-10.4C4 6.8 6.6 4.4 9.6 4.4c1.7 0 3 .8 3.9 2 .9-1.2 2.2-2 3.9-2 3 0 5.6 2.4 5.6 6.2C21 16.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.4"/>' +
+      "</svg>";
+
+    var html = '<div class="calendar-weekdays">';
+    weekdayLabels.forEach(function (w) {
+      html += "<div>" + w + "</div>";
+    });
+    html += '</div><div class="calendar-days">';
+
+    for (var i = 0; i < startIndex; i++) {
+      html += '<div class="calendar-cell calendar-cell--empty"></div>';
+    }
+    for (var d = 1; d <= daysInMonth; d++) {
+      var isEvent = d === day;
+      html += '<div class="calendar-cell' + (isEvent ? " is-event" : "") + '">';
+      if (isEvent) html += heartSvg;
+      html += '<span class="day-num">' + (d < 10 ? "0" + d : d) + "</span></div>";
+    }
+    html += "</div>";
+    container.innerHTML = html;
+
+    if (dtText) {
+      dtText.innerHTML = (cfg.eventDateLong || "") + "<br>Сағат " + (cfg.eventTime || "") + "-де";
+    }
+  })();
+
   /* ---------- photos: load real image, keep ornamental fallback on failure ---------- */
   document.querySelectorAll("[data-photo]").forEach(function (el) {
     var key = el.getAttribute("data-photo");

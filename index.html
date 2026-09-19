@@ -7,7 +7,7 @@
 <meta name="description" content="Салтанат қыз ұзату тойына арналған электронды шақыру">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -29,7 +29,7 @@
       </div>
       <div class="photo-gradient-bottom"></div>
       <div class="hero-name reveal-load" data-delay="1">
-        <span data-config="brideName">Салтанат</span>
+        <span data-config="brideNameLatin">Saltanat</span>
       </div>
     </div>
 
@@ -42,7 +42,7 @@
           <circle cx="20" cy="215" r="2" fill="currentColor"/>
         </svg>
 
-        <h1 class="hero-title reveal-load" data-delay="3">ҚЫЗ ҰЗАТУ</h1>
+        <h1 class="hero-title reveal-load" data-delay="3">QYZ UZATU</h1>
 
         <svg class="side-ornament side-ornament--right reveal-load" data-delay="2" viewBox="0 0 40 220" xmlns="http://www.w3.org/2000/svg">
           <path d="M20 10 C 6 40, 34 60, 20 90 C 6 120, 34 140, 20 170 C 10 190, 26 205, 20 215" fill="none" stroke="currentColor" stroke-width="1.1"/>
@@ -74,13 +74,15 @@
     </div>
 
     <div class="section-body">
-      <p class="eyebrow reveal">СІЗДЕРДІ АЯУЛЫ ҚЫЗЫМЫЗ</p>
-      <p class="script-name reveal" data-config="brideNamePossessive">Салтанатымыздың</p>
-      <p class="invite-text reveal">
-        АҚ МЕКЕНІНЕН ҰШАР<br>
-        СӘТІНДЕ ҚУАНЫШЫМЫЗБЕН<br>
-        БӨЛІСУГЕ ШЫН НИЕТПЕН<br>
-        ШАҚЫРАМЫЗ!
+      <p class="script-name reveal">Құрметті</p>
+      <p class="guests-text reveal">
+        АҒАЙЫН-ТУЫС, БАУЫРЛАР,<br>
+        ҚҰДА-ЖЕКЖАТ,<br>
+        НАҒАШЫ-ЖИЕН,<br>
+        БӨЛЕЛЕР,<br>
+        ӘПКЕ-ЖЕЗДЕ,<br>
+        ҚҰРДАСТАР, ДОСТАР,<br>
+        ӘРІПТЕСТЕР, КӨРШІЛЕР!
       </p>
       <svg class="divider reveal" viewBox="0 0 300 30" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 15 Q 75 0, 140 15" fill="none" stroke="currentColor" stroke-width="1"/>
@@ -113,15 +115,13 @@
         <circle cx="115" cy="115" r="2.6" fill="currentColor"/>
       </svg>
 
-      <p class="script-name reveal">Құрметті</p>
-      <p class="guests-text reveal">
-        АҒАЙЫН-ТУЫС, БАУЫРЛАР,<br>
-        ҚҰДА-ЖЕКЖАТ,<br>
-        НАҒАШЫ-ЖИЕН,<br>
-        БӨЛЕЛЕР,<br>
-        ӘПКЕ-ЖЕЗДЕ,<br>
-        ҚҰРДАСТАР, ДОСТАР,<br>
-        ӘРІПТЕСТЕР, КӨРШІЛЕР!
+      <p class="eyebrow reveal">СІЗДЕРДІ АЯУЛЫ ҚЫЗЫМЫЗ</p>
+      <p class="script-name reveal" data-config="brideNamePossessive">Салтанатымыздың</p>
+      <p class="invite-text reveal">
+        АҚ МЕКЕНІНЕН ҰШАР<br>
+        СӘТІНДЕ ҚУАНЫШЫМЫЗБЕН<br>
+        БӨЛІСУГЕ ШЫН НИЕТПЕН<br>
+        ШАҚЫРАМЫЗ!
       </p>
     </div>
   </section>
@@ -163,14 +163,19 @@
 
     <div class="section-body">
       <div class="card reveal">
-        <p class="eyebrow">ТОЙ КҮНІ</p>
-        <p class="card-date" data-config="eventDateLong">14 ақпан 2026 жыл</p>
+        <p class="calendar-title">Той салтанаты:</p>
         <svg class="divider divider--small" viewBox="0 0 200 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M6 12 Q 50 0, 94 12" fill="none" stroke="currentColor" stroke-width="1"/>
           <path d="M194 12 Q 150 0, 106 12" fill="none" stroke="currentColor" stroke-width="1"/>
           <circle cx="100" cy="12" r="3" fill="currentColor"/>
         </svg>
-        <p class="card-time"><span data-config="eventTime">18:00</span></p>
+        <div class="calendar" id="calendar"></div>
+        <p class="calendar-datetime" id="calendar-datetime"></p>
+        <svg class="divider divider--small" viewBox="0 0 200 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 12 Q 50 0, 94 12" fill="none" stroke="currentColor" stroke-width="1"/>
+          <path d="M194 12 Q 150 0, 106 12" fill="none" stroke="currentColor" stroke-width="1"/>
+          <circle cx="100" cy="12" r="3" fill="currentColor"/>
+        </svg>
         <p class="card-venue">
           <span class="venue-name" data-config="venueName">Мейрамхана атауы</span><br>
           <span class="venue-address" data-config="venueAddress">Мекенжай</span>
