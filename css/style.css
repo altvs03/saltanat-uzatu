@@ -159,7 +159,7 @@ body {
 
 .side-ornaments {
   display: grid;
-  grid-template-columns: 30px 1fr 30px;
+  grid-template-columns: clamp(14px, 6vw, 30px) 1fr clamp(14px, 6vw, 30px);
   align-items: center;
   gap: 6px;
   margin: 6px 0 4px;
@@ -207,10 +207,10 @@ body {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: .22em;
-  font-size: clamp(calc(1.6rem + 5px), 6.4vw, calc(2.1rem + 5px));
+  font-size: clamp(calc(1.15rem + 5px), 5.6vw, calc(2.1rem + 5px));
   color: var(--maroon-900);
   text-align: center;
+  white-space: nowrap;
 }
 
 .hero-date {
@@ -469,7 +469,7 @@ body {
   opacity: 1;
   transform: translate(0, 0) rotate(0deg) scale(1);
 }
-.hero-title .letter { margin-right: .22em; }
+.hero-title .letter { margin-right: clamp(.05em, 1.6vw, .22em); }
 .hero-title .letter:last-child { margin-right: 0; }
 
 /* ---------- reveal / scroll animations ---------- */
